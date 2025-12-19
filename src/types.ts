@@ -13,6 +13,5 @@ export interface Video {
   className: string;
   teamMembers: TeamMember[];
   description?: string;
+  heartCount: number;
 }
-
-

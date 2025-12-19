@@ -1,10 +1,16 @@
+import { ArrowLeftIcon, ArrowRightIcon } from "../assets/Icons";
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-export const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+export const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) => {
   const getPageNumbers = () => {
     const pages: (number | string)[] = [];
     const maxVisible = 5;
@@ -19,7 +25,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
       pages.push(1);
 
       if (currentPage > 3) {
-        pages.push('...');
+        pages.push("...");
       }
 
       // Show pages around current page
@@ -31,7 +37,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
       }
 
       if (currentPage < totalPages - 2) {
-        pages.push('...');
+        pages.push("...");
       }
 
       // Always show last page
@@ -47,21 +53,9 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-800 transition-colors"
+        className="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-800 transition-colors"
       >
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+        <ArrowLeftIcon width={20} height={20} />
       </button>
 
       {/* Page Numbers */}
@@ -69,14 +63,14 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
         {getPageNumbers().map((page, index) => (
           <button
             key={index}
-            onClick={() => typeof page === 'number' && onPageChange(page)}
-            disabled={page === '...'}
-            className={`px-4 py-2 rounded-lg transition-colors min-w-10 ${
+            onClick={() => typeof page === "number" && onPageChange(page)}
+            disabled={page === "..."}
+            className={`p-2 rounded-lg transition-colors min-w-10 ${
               page === currentPage
-                ? 'bg-blue-500 text-white font-semibold'
-                : page === '...'
-                ? 'bg-transparent text-gray-400 cursor-default'
-                : 'bg-gray-800 text-white hover:bg-gray-700'
+                ? "bg-blue-500 text-white font-semibold"
+                : page === "..."
+                ? "bg-transparent text-gray-400 cursor-default"
+                : "bg-gray-800 text-white hover:bg-gray-700"
             }`}
           >
             {page}
@@ -88,24 +82,10 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-800 transition-colors"
+        className="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-800 transition-colors"
       >
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+        <ArrowRightIcon width={20} height={20} />
       </button>
     </div>
   );
 };
-
-

@@ -12,6 +12,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "An intelligent assistant that helps students manage their study schedules and answer questions.",
+    heartCount: 0,
     teamMembers: [
       { id: "1", name: "Nguyễn Văn A", role: "Team Leader" },
       { id: "2", name: "Trần Thị B", role: "Backend Developer" },
@@ -29,6 +30,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "A mobile app that helps students navigate through campus buildings and find classrooms easily.",
+    heartCount: 0,
     teamMembers: [
       { id: "4", name: "Phạm Minh D", role: "Team Leader" },
       { id: "5", name: "Hoàng Thị E", role: "Mobile Developer" },
@@ -46,6 +48,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "A virtual reality lab simulator for science experiments and practical learning.",
+    heartCount: 0,
     teamMembers: [
       { id: "7", name: "Võ Thị G", role: "Team Leader" },
       { id: "8", name: "Bùi Văn H", role: "3D Developer" },
@@ -64,6 +67,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "An AI-based system to monitor and prevent cheating during online examinations.",
+    heartCount: 0,
     teamMembers: [
       { id: "11", name: "Trịnh Văn L", role: "Team Leader" },
       { id: "12", name: "Cao Thị M", role: "AI Engineer" },
@@ -81,6 +85,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "A platform connecting students with counselors and mental health resources.",
+    heartCount: 0,
     teamMembers: [
       { id: "14", name: "Dương Thị O", role: "Team Leader" },
       { id: "15", name: "Lưu Văn P", role: "Full Stack Developer" },
@@ -98,6 +103,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "An interactive platform with gamification elements to make learning more engaging.",
+    heartCount: 0,
     teamMembers: [
       { id: "17", name: "Phan Văn R", role: "Team Leader" },
       { id: "18", name: "Tô Thị S", role: "Frontend Developer" },
@@ -116,6 +122,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "A comprehensive system for organizing and managing campus events and activities.",
+    heartCount: 0,
     teamMembers: [
       { id: "21", name: "Ngô Văn V", role: "Team Leader" },
       { id: "22", name: "Đỗ Thị W", role: "Full Stack Developer" },
@@ -133,6 +140,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "An automated library management system with book recommendations and digital lending.",
+    heartCount: 0,
     teamMembers: [
       { id: "24", name: "Huỳnh Thị Y", role: "Team Leader" },
       { id: "25", name: "Thái Văn Z", role: "Backend Developer" },
@@ -150,6 +158,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "A platform that connects students with career opportunities and mentorship programs.",
+    heartCount: 0,
     teamMembers: [
       { id: "27", name: "Kiều Văn AB", role: "Team Leader" },
       { id: "28", name: "Mạc Thị AC", role: "Full Stack Developer" },
@@ -168,6 +177,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "A convenient app for ordering food from campus cafeterias and restaurants.",
+    heartCount: 0,
     teamMembers: [
       { id: "31", name: "Ý Văn AF", role: "Team Leader" },
       { id: "32", name: "Ánh Thị AG", role: "Mobile Developer" },
@@ -185,6 +195,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "An IoT solution for automating classroom environments and improving energy efficiency.",
+    heartCount: 0,
     teamMembers: [
       { id: "34", name: "Chi Thị AI", role: "Team Leader" },
       { id: "35", name: "Duy Văn AJ", role: "IoT Developer" },
@@ -202,6 +213,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "A collaborative platform for managing research papers and academic publications.",
+    heartCount: 0,
     teamMembers: [
       { id: "37", name: "Giang Văn AL", role: "Team Leader" },
       { id: "38", name: "Hiền Thị AM", role: "Full Stack Developer" },
@@ -219,6 +231,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "An automated attendance system using facial recognition and QR codes.",
+    heartCount: 0,
     teamMembers: [
       { id: "40", name: "Linh Thị AO", role: "Team Leader" },
       { id: "41", name: "Minh Văn AP", role: "AI Developer" },
@@ -236,6 +249,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "A platform for students to collaborate on projects and share knowledge.",
+    heartCount: 0,
     teamMembers: [
       { id: "43", name: "Phúc Văn AR", role: "Team Leader" },
       { id: "44", name: "Quỳnh Thị AS", role: "Frontend Developer" },
@@ -254,6 +268,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "An integrated security system with real-time monitoring and emergency alerts.",
+    heartCount: 0,
     teamMembers: [
       { id: "47", name: "Uyên Thị AV", role: "Team Leader" },
       { id: "48", name: "Vỹ Văn AW", role: "Backend Developer" },
@@ -271,6 +286,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "A networking platform connecting current students with alumni for mentorship.",
+    heartCount: 0,
     teamMembers: [
       { id: "50", name: "Yến Thị AY", role: "Team Leader" },
       { id: "51", name: "Anh Văn AZ", role: "Full Stack Developer" },
@@ -288,6 +304,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "A comprehensive platform for hosting and managing online courses.",
+    heartCount: 0,
     teamMembers: [
       { id: "53", name: "Cường Văn BB", role: "Team Leader" },
       { id: "54", name: "Đạt Văn BC", role: "Backend Developer" },
@@ -305,6 +322,7 @@ export const mockVideos: Video[] = [
     className: "IT9C",
     description:
       "A system for organizing and tracking campus sports tournaments and leagues.",
+    heartCount: 0,
     teamMembers: [
       { id: "56", name: "Khánh Văn BE", role: "Team Leader" },
       { id: "57", name: "Long Văn BF", role: "Full Stack Developer" },
@@ -322,6 +340,7 @@ export const mockVideos: Video[] = [
     className: "IT9A",
     description:
       "A financial management app helping students track expenses and save money.",
+    heartCount: 0,
     teamMembers: [
       { id: "59", name: "Nam Văn BH", role: "Team Leader" },
       { id: "60", name: "Phương Thị BI", role: "Mobile Developer" },
@@ -339,6 +358,7 @@ export const mockVideos: Video[] = [
     className: "IT9B",
     description:
       "An app that helps students find and join study groups based on their courses.",
+    heartCount: 0,
     teamMembers: [
       { id: "62", name: "Thảo Thị BK", role: "Team Leader" },
       { id: "63", name: "Tuấn Văn BL", role: "Frontend Developer" },
@@ -358,6 +378,7 @@ export const mockVideos: Video[] = [
     className: "BA9A",
     description:
       "A comprehensive e-commerce solution helping local businesses reach online customers.",
+    heartCount: 0,
     teamMembers: [
       { id: "66", name: "Nguyễn Thị Lan", role: "Team Leader" },
       { id: "67", name: "Trần Văn Minh", role: "Business Analyst" },
@@ -375,6 +396,7 @@ export const mockVideos: Video[] = [
     className: "BA9B",
     description:
       "An integrated system for managing supply chain operations and inventory.",
+    heartCount: 0,
     teamMembers: [
       { id: "69", name: "Phạm Văn Tùng", role: "Team Leader" },
       { id: "70", name: "Hoàng Thị Mai", role: "Operations Manager" },
@@ -392,6 +414,7 @@ export const mockVideos: Video[] = [
     className: "BA9C",
     description:
       "A powerful CRM tool to manage customer relationships and boost sales.",
+    heartCount: 0,
     teamMembers: [
       { id: "72", name: "Võ Thị Ngọc", role: "Team Leader" },
       { id: "73", name: "Bùi Văn Nam", role: "Sales Lead" },
@@ -409,6 +432,7 @@ export const mockVideos: Video[] = [
     teamName: "Finance Pro",
     className: "BA9A",
     description: "A real-time dashboard for financial analysis and reporting.",
+    heartCount: 0,
     teamMembers: [
       { id: "76", name: "Trịnh Văn Quang", role: "Team Leader" },
       { id: "77", name: "Cao Thị Linh", role: "Financial Analyst" },
@@ -426,6 +450,7 @@ export const mockVideos: Video[] = [
     className: "BA9B",
     description:
       "A comprehensive platform for human resources management and recruitment.",
+    heartCount: 0,
     teamMembers: [
       { id: "79", name: "Dương Thị Hương", role: "Team Leader" },
       { id: "80", name: "Lưu Văn Khoa", role: "HR Specialist" },
@@ -443,6 +468,7 @@ export const mockVideos: Video[] = [
     teamName: "Design Studio",
     className: "DS9A",
     description: "A complete brand identity system with guidelines and assets.",
+    heartCount: 0,
     teamMembers: [
       { id: "82", name: "Phan Thị Thu", role: "Lead Designer" },
       { id: "83", name: "Tô Văn Long", role: "Brand Strategist" },
@@ -459,6 +485,7 @@ export const mockVideos: Video[] = [
     teamName: "Motion Creators",
     className: "DS9B",
     description: "A collection of stunning motion graphics and animations.",
+    heartCount: 0,
     teamMembers: [
       { id: "85", name: "Châu Văn Tài", role: "Lead Animator" },
       { id: "86", name: "Ngô Thị Hà", role: "Motion Designer" },
@@ -476,6 +503,7 @@ export const mockVideos: Video[] = [
     className: "DS9C",
     description:
       "A comprehensive portfolio showcasing user-centered design solutions.",
+    heartCount: 0,
     teamMembers: [
       { id: "88", name: "Lâm Thị Tú", role: "UX Lead" },
       { id: "89", name: "Huỳnh Văn Phát", role: "UI Designer" },
@@ -493,6 +521,7 @@ export const mockVideos: Video[] = [
     teamName: "Package Pros",
     className: "DS9A",
     description: "Innovative package designs for various product categories.",
+    heartCount: 0,
     teamMembers: [
       { id: "92", name: "Kiều Thị Lan", role: "Design Director" },
       { id: "93", name: "Mạc Văn Đạt", role: "Product Designer" },
@@ -510,6 +539,7 @@ export const mockVideos: Video[] = [
     className: "DS9B",
     description:
       "A beautiful series of digital illustrations telling unique stories.",
+    heartCount: 0,
     teamMembers: [
       { id: "95", name: "Uông Văn Hải", role: "Lead Illustrator" },
       { id: "96", name: "Ý Thị Mai", role: "Character Designer" },
