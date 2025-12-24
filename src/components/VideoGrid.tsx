@@ -105,23 +105,23 @@ export const VideoGrid = ({ category }: VideoGridProps) => {
           <p className="text-gray-400 text-sm lg:text-base font-semibold">
             {classId}
           </p>
-          <p className="text-gray-400 text-sm lg:text-base mt-1">
+          <p className="text-gray-400 text-sm lg:text-base mt-1 mb-3 lg:mb-0">
             {category.description}
           </p>
         </>
       )}
 
-      <div className="w-fit lg:ml-auto mb-2 lg:mb-4 flex items-center gap-3 bg-gray-800 py-1 px-2 lg:px-4 lg:py-2 rounded-lg mt-2">
+      <div className="hidden w-fit ml-auto mb-4 lg:flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg mt-2">
         <span className="text-sm text-gray-300">Autoplay</span>
         <button
           onClick={() => setAutoplay(!autoplay)}
-          className={`relative inline-flex text-xs lg:text-sm h-4 lg:h-6 w-7 lg:w-11 items-center rounded-full transition-colors ${
+          className={`relative inline-flex text-sm h-6 w-11 items-center rounded-full transition-colors ${
             autoplay ? "bg-blue-500" : "bg-gray-600"
           }`}
         >
           <span
-            className={`inline-block h-3 lg:h-4 w-3 lg:w-4 transform rounded-full bg-white transition-transform ${
-              autoplay ? "translate-x-3 lg:translate-x-6" : "translate-x-1"
+            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+              autoplay ? "translate-x-6" : "translate-x-1"
             }`}
           />
         </button>
