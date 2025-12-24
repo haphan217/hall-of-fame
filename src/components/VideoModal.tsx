@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import { Cloudinary } from "@cloudinary/url-gen";
+
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -9,6 +11,12 @@ import {
 } from "../assets/Icons";
 import { type Video } from "../types";
 import HeartButton from "./HeartButton";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "drwdqe51v",
+  },
+});
 
 interface VideoModalProps {
   videoId: string;
@@ -28,16 +36,7 @@ export const VideoModal = ({
   onHeartClick,
 }: VideoModalProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const cloudinaryRef = useRef<any>(null);
-
-  useEffect(() => {
-    if (cloudinaryRef.current) return;
-
-    cloudinaryRef.current = (window as any).cloudinary;
-    cloudinaryRef.current?.videoPlayer(videoRef.current, {
-      cloudName: "drwdqe51v",
-    });
-  }, []);
+  const videoUrl = cld.video(videoId).toURL();
 
   const currentIndex = videos.findIndex((v) => v.videoId === videoId);
   const video = videos[currentIndex];
@@ -45,10 +44,12 @@ export const VideoModal = ({
   const hasNext = currentIndex < videos.length - 1;
 
   useEffect(() => {
-    if (videoId && videoRef.current) {
+    if (videoRef.current && videoUrl) {
+      console.log("loading video");
+      videoRef.current.load();
       videoRef.current.play();
     }
-  }, [videoId]);
+  }, [videoUrl]);
 
   const handleVideoEnded = () => {
     if (!hasNext || !autoplay) return;
@@ -97,14 +98,15 @@ export const VideoModal = ({
 
         <div className="flex-1 flex flex-col overflow-auto">
           {/* Video Player */}
-          <div className="relative bg-black aspect-video shrink-0">
+          <div className="relative bg-black aspect-video shrink-0 h-full">
             <video
               ref={videoRef}
-              data-cld-public-id={video.videoId}
               controls
-              className="w-full! h-full! object-cover"
+              className="w-full h-full"
               onEnded={handleVideoEnded}
-            />
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
           </div>
 
           {/* Video Details */}

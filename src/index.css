@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "cloudinary-video-player/cld-video-player.min.css";
 
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

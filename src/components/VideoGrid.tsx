@@ -22,7 +22,7 @@ interface VideoGridProps {
 export const VideoGrid = ({ category }: VideoGridProps) => {
   const [autoplay, setAutoplay] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedVideoId, setSelectedVideoId] = useState("");
+  const [selectedVideo, setSelectedVideo] = useState<Video>();
   const [videos, setVideos] = useState<Video[]>([]);
 
   const [loading, setLoading] = useState(true);
@@ -78,14 +78,14 @@ export const VideoGrid = ({ category }: VideoGridProps) => {
     });
   };
 
-  const handleVideoClick = (id: string) => {
-    setSelectedVideoId(id);
+  const handleVideoClick = (video: Video) => {
+    setSelectedVideo(video);
   };
 
   const handleNavigate = (direction: "prev" | "next") => {
-    if (!selectedVideoId) return;
+    if (!selectedVideo) return;
 
-    const currentIndex = videos.findIndex((v) => v.videoId === selectedVideoId);
+    const currentIndex = videos.findIndex((v) => v.id === selectedVideo.id);
     let newIndex: number;
 
     if (direction === "prev") {
@@ -95,7 +95,7 @@ export const VideoGrid = ({ category }: VideoGridProps) => {
         currentIndex < videos.length - 1 ? currentIndex + 1 : currentIndex;
     }
 
-    setSelectedVideoId(videos[newIndex].videoId);
+    setSelectedVideo(videos[newIndex]);
   };
 
   return (
@@ -130,9 +130,9 @@ export const VideoGrid = ({ category }: VideoGridProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         {currentVideos.map((video) => (
           <VideoCard
-            key={video.videoId}
+            key={video.id}
             video={video}
-            onClick={() => handleVideoClick(video.videoId)}
+            onClick={() => handleVideoClick(video)}
             onHeartClick={() => handleHeartClick(video.id)}
           />
         ))}
@@ -151,14 +151,14 @@ export const VideoGrid = ({ category }: VideoGridProps) => {
         {videos.length} videos
       </div>
 
-      {selectedVideoId && (
+      {selectedVideo && (
         <VideoModal
-          videoId={selectedVideoId}
+          videoId={selectedVideo.videoId}
           videos={videos}
           autoplay={autoplay}
-          onClose={() => setSelectedVideoId("")}
+          onClose={() => setSelectedVideo(undefined)}
           onNavigate={handleNavigate}
-          onHeartClick={() => handleHeartClick(selectedVideoId)}
+          onHeartClick={() => handleHeartClick(selectedVideo.id)}
         />
       )}
     </div>
