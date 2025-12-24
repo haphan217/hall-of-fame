@@ -2,7 +2,7 @@ import { type Video } from "./types";
 
 export const mockVideos: Video[] = [
   {
-    id: "1",
+    videoId: "1",
     title: "AI-Powered Student Assistant",
     thumbnail:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
@@ -20,7 +20,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "2",
+    videoId: "2",
     title: "Smart Campus Navigation",
     thumbnail:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
@@ -38,7 +38,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "3",
+    videoId: "3",
     title: "Virtual Lab Simulator",
     thumbnail:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
@@ -57,7 +57,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "4",
+    videoId: "4",
     title: "Online Exam Proctoring System",
     thumbnail:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
@@ -75,7 +75,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "5",
+    videoId: "5",
     title: "Student Mental Health Support",
     thumbnail:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
@@ -93,7 +93,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "6",
+    videoId: "6",
     title: "Interactive Learning Platform",
     thumbnail:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
@@ -112,7 +112,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "7",
+    videoId: "7",
     title: "Campus Event Management",
     thumbnail:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop",
@@ -130,7 +130,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "8",
+    videoId: "8",
     title: "Smart Library System",
     thumbnail:
       "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&h=300&fit=crop",
@@ -148,7 +148,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "9",
+    videoId: "9",
     title: "Career Guidance Platform",
     thumbnail:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
@@ -167,7 +167,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "10",
+    videoId: "10",
     title: "Food Ordering System",
     thumbnail:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop",
@@ -185,7 +185,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "11",
+    videoId: "11",
     title: "IoT Smart Classroom",
     thumbnail:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
@@ -203,7 +203,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "12",
+    videoId: "12",
     title: "Research Paper Management",
     thumbnail:
       "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=300&fit=crop",
@@ -221,7 +221,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "13",
+    videoId: "13",
     title: "Attendance Tracking System",
     thumbnail:
       "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
@@ -239,7 +239,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "14",
+    videoId: "14",
     title: "Student Collaboration Hub",
     thumbnail:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
@@ -258,7 +258,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "15",
+    videoId: "15",
     title: "Campus Security System",
     thumbnail:
       "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&h=300&fit=crop",
@@ -276,7 +276,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "16",
+    videoId: "16",
     title: "Alumni Network Platform",
     thumbnail:
       "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
@@ -294,7 +294,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "17",
+    videoId: "17",
     title: "Online Course Platform",
     thumbnail:
       "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400&h=300&fit=crop",
@@ -312,7 +312,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "18",
+    videoId: "18",
     title: "Sports Tournament Manager",
     thumbnail:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop",
@@ -330,7 +330,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "19",
+    videoId: "19",
     title: "Student Budget Tracker",
     thumbnail:
       "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop",
@@ -348,7 +348,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "20",
+    videoId: "20",
     title: "Study Group Finder",
     thumbnail:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
@@ -368,7 +368,7 @@ export const mockVideos: Video[] = [
   },
   // Business Administration Class Videos
   {
-    id: "21",
+    videoId: "21",
     title: "E-Commerce Platform for Local Businesses",
     thumbnail:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
@@ -386,7 +386,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "22",
+    videoId: "22",
     title: "Supply Chain Management System",
     thumbnail:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop",
@@ -404,7 +404,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "23",
+    videoId: "23",
     title: "Customer Relationship Management Tool",
     thumbnail:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
@@ -423,7 +423,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "24",
+    videoId: "24",
     title: "Financial Analysis Dashboard",
     thumbnail:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
@@ -440,7 +440,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "25",
+    videoId: "25",
     title: "HR Management Platform",
     thumbnail:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
@@ -459,7 +459,7 @@ export const mockVideos: Video[] = [
   },
   // Design Class Videos
   {
-    id: "26",
+    videoId: "26",
     title: "Brand Identity Design System",
     thumbnail:
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=300&fit=crop",
@@ -476,7 +476,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "27",
+    videoId: "27",
     title: "Motion Graphics Showcase",
     thumbnail:
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop",
@@ -493,7 +493,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "28",
+    videoId: "28",
     title: "UI/UX Design Portfolio",
     thumbnail:
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=300&fit=crop",
@@ -512,7 +512,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "29",
+    videoId: "29",
     title: "Package Design Collection",
     thumbnail:
       "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=300&fit=crop",
@@ -529,7 +529,7 @@ export const mockVideos: Video[] = [
     ],
   },
   {
-    id: "30",
+    videoId: "30",
     title: "Digital Illustration Series",
     thumbnail:
       "https://images.unsplash.com/photo-1596548438137-d51ea5c83ca5?w=400&h=300&fit=crop",

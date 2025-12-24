@@ -4,14 +4,19 @@ export interface TeamMember {
   role?: string;
 }
 
+export interface Category {
+  name: string;
+  description: string;
+}
+
 export interface Video {
   id: string;
+  videoId: string;
   title: string;
   thumbnail: string;
-  videoUrl: string;
   teamName: string;
   className: string;
-  teamMembers: TeamMember[];
+  teamMembers: string[];
   description?: string;
   heartCount: number;
 }

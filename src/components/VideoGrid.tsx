@@ -1,18 +1,59 @@
-import { useState } from "react";
+import {
+  collection,
+  doc,
+  getDocs,
+  increment,
+  updateDoc,
+} from "firebase/firestore";
+import { useEffect, useState } from "react";
 
-import { mockVideos } from "../mockData";
-import { type Video } from "../types";
+import { type Category, type Video } from "../types";
+import { db } from "../utils/firebaseConfig";
 import { Pagination } from "./Pagination";
 import { VideoCard } from "./VideoCard";
 import { VideoModal } from "./VideoModal";
 
 const VIDEOS_PER_PAGE = 10;
 
-export const VideoGrid = () => {
+interface VideoGridProps {
+  category?: Category;
+}
+
+export const VideoGrid = ({ category }: VideoGridProps) => {
   const [autoplay, setAutoplay] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedVideoId, setSelectedVideoId] = useState("");
-  const [videos, setVideos] = useState<Video[]>(mockVideos);
+  const [videos, setVideos] = useState<Video[]>([]);
+
+  const [loading, setLoading] = useState(true);
+  const classId = category?.name;
+
+  useEffect(() => {
+    if (!classId) return;
+
+    (async () => {
+      setLoading(true);
+      const docRef = collection(db, `videos_${classId}`);
+      const querySnapshot = await getDocs(docRef);
+      const vids = querySnapshot.docs.map(
+        (doc) =>
+          ({
+            id: doc.id,
+            ...doc.data(),
+          } as Video)
+      );
+      setVideos(vids);
+      setLoading(false);
+    })();
+  }, [classId]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900 dark:border-white"></div>
+      </div>
+    );
+  }
 
   const totalPages = Math.ceil(videos.length / VIDEOS_PER_PAGE);
   const startIndex = (currentPage - 1) * VIDEOS_PER_PAGE;
@@ -24,14 +65,17 @@ export const VideoGrid = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleHeartClick = (videoId: string) => {
+  const handleHeartClick = async (id: string) => {
     setVideos((prev) =>
       prev.map((video) =>
-        video.id === videoId
-          ? { ...video, heartCount: video.heartCount + 1 }
-          : video
+        video.id === id ? { ...video, heartCount: video.heartCount + 1 } : video
       )
     );
+
+    const videoRef = doc(db, `videos_${classId}`, id);
+    await updateDoc(videoRef, {
+      heartCount: increment(1),
+    });
   };
 
   const handleVideoClick = (id: string) => {
@@ -41,32 +85,43 @@ export const VideoGrid = () => {
   const handleNavigate = (direction: "prev" | "next") => {
     if (!selectedVideoId) return;
 
-    const currentIndex = mockVideos.findIndex((v) => v.id === selectedVideoId);
+    const currentIndex = videos.findIndex((v) => v.videoId === selectedVideoId);
     let newIndex: number;
 
     if (direction === "prev") {
       newIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
     } else {
       newIndex =
-        currentIndex < mockVideos.length - 1 ? currentIndex + 1 : currentIndex;
+        currentIndex < videos.length - 1 ? currentIndex + 1 : currentIndex;
     }
 
-    setSelectedVideoId(mockVideos[newIndex].id);
+    setSelectedVideoId(videos[newIndex].videoId);
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
-      <div className="w-fit lg:ml-auto mb-4 flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg">
+    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:px-8  w-full">
+      {category && (
+        <>
+          <p className="text-gray-400 text-sm lg:text-base font-semibold">
+            {classId}
+          </p>
+          <p className="text-gray-400 text-sm lg:text-base mt-1">
+            {category.description}
+          </p>
+        </>
+      )}
+
+      <div className="w-fit lg:ml-auto mb-2 lg:mb-4 flex items-center gap-3 bg-gray-800 py-1 px-2 lg:px-4 lg:py-2 rounded-lg mt-2">
         <span className="text-sm text-gray-300">Autoplay</span>
         <button
           onClick={() => setAutoplay(!autoplay)}
-          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+          className={`relative inline-flex text-xs lg:text-sm h-4 lg:h-6 w-7 lg:w-11 items-center rounded-full transition-colors ${
             autoplay ? "bg-blue-500" : "bg-gray-600"
           }`}
         >
           <span
-            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-              autoplay ? "translate-x-6" : "translate-x-1"
+            className={`inline-block h-3 lg:h-4 w-3 lg:w-4 transform rounded-full bg-white transition-transform ${
+              autoplay ? "translate-x-3 lg:translate-x-6" : "translate-x-1"
             }`}
           />
         </button>
@@ -75,9 +130,9 @@ export const VideoGrid = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         {currentVideos.map((video) => (
           <VideoCard
-            key={video.id}
+            key={video.videoId}
             video={video}
-            onClick={() => handleVideoClick(video.id)}
+            onClick={() => handleVideoClick(video.videoId)}
             onHeartClick={() => handleHeartClick(video.id)}
           />
         ))}

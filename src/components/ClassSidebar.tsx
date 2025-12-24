@@ -1,22 +1,37 @@
+import { collection, getDocs } from "firebase/firestore";
 import { ArrowRightIcon, ITIcon, XIcon } from "../assets/Icons";
-
-const categories = ["IT", "BA", "DS"];
+import { db } from "../utils/firebaseConfig";
+import { useEffect, useState } from "react";
+import type { Category } from "../types";
 
 interface ClassSidebarProps {
   selectedClass?: string;
-  onSelectClass: (category: string) => void;
+  onSelectClass: (category?: Category) => void;
   onCloseMobile: () => void;
   isCollapsed: boolean;
   onToggleCollapse: () => void;
 }
 
 export const ClassSidebar = ({
-  selectedClass: selectedCategory,
-  onSelectClass: onSelectCategory,
+  selectedClass,
+  onSelectClass,
   onCloseMobile,
   isCollapsed,
   onToggleCollapse,
 }: ClassSidebarProps) => {
+  const docRef = collection(db, "categories");
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const querySnapshot = await getDocs(docRef);
+      const cats = querySnapshot.docs.map((doc) => doc.data() as Category);
+      setCategories(cats);
+
+      onSelectClass(cats[0]);
+    })();
+  }, []);
+
   return (
     <>
       <div
@@ -37,7 +52,7 @@ export const ClassSidebar = ({
             <h2 className="text-lg font-semibold text-white">Classes</h2>
           )}
 
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center ml-auto">
             {/* Desktop Toggle Button */}
             <button
               onClick={onToggleCollapse}
@@ -63,59 +78,27 @@ export const ClassSidebar = ({
           </div>
         </div>
 
-        <div className="p-4 border-b border-gray-800">
-          <button
-            onClick={() => onSelectCategory("")}
-            className={`w-full rounded-lg py-2 transition-colors flex items-center ${
-              !selectedCategory
-                ? "bg-blue-500 text-white"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            } ${!isCollapsed ? "px-3" : "px-1 justify-center"}`}
-          >
-            <div className="flex items-center gap-3">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                />
-              </svg>
-              {!isCollapsed && (
-                <span className="text-sm font-medium whitespace-nowrap">
-                  All Classes
-                </span>
-              )}
-            </div>
-          </button>
-        </div>
-
         <div className="flex-1 overflow-auto p-4 space-y-2">
           {categories.map((category) => (
-            <div key={category}>
+            <div key={category.name}>
               <button
-                onClick={() => onSelectCategory(category)}
+                onClick={() => onSelectClass(category)}
                 className={`w-full flex items-center gap-2 text-gray-400 py-2 hover:text-white transition-colors rounded-lg ${
-                  selectedCategory === category
+                  selectedClass === category.name
                     ? "bg-blue-500 text-white"
                     : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 } ${!isCollapsed ? "px-3" : "px-1.5 justify-center"}`}
               >
                 <div
                   className={`text-blue-400 ${
-                    selectedCategory === category ? "text-white" : ""
+                    selectedClass === category.name ? "text-white" : ""
                   }`}
                 >
                   <ITIcon />
                 </div>
                 {!isCollapsed && (
                   <span className="text-sm font-medium whitespace-nowrap">
-                    {category}
+                    {category.name}
                   </span>
                 )}
               </button>

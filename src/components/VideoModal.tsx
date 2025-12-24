@@ -28,15 +28,24 @@ export const VideoModal = ({
   onHeartClick,
 }: VideoModalProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cloudinaryRef = useRef<any>(null);
 
-  const currentIndex = videos.findIndex((v) => v.id === videoId);
+  useEffect(() => {
+    if (cloudinaryRef.current) return;
+
+    cloudinaryRef.current = (window as any).cloudinary;
+    cloudinaryRef.current?.videoPlayer(videoRef.current, {
+      cloudName: "drwdqe51v",
+    });
+  }, []);
+
+  const currentIndex = videos.findIndex((v) => v.videoId === videoId);
   const video = videos[currentIndex];
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < videos.length - 1;
 
   useEffect(() => {
     if (videoId && videoRef.current) {
-      videoRef.current.load();
       videoRef.current.play();
     }
   }, [videoId]);
@@ -91,12 +100,11 @@ export const VideoModal = ({
           <div className="relative bg-black aspect-video shrink-0">
             <video
               ref={videoRef}
-              className="w-full h-full"
+              data-cld-public-id={video.videoId}
               controls
+              className="w-full! h-full! object-cover"
               onEnded={handleVideoEnded}
-            >
-              <source src={video.videoUrl} type="video/mp4" />
-            </video>
+            />
           </div>
 
           {/* Video Details */}
@@ -142,10 +150,10 @@ export const VideoModal = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {video.teamMembers.map((member) => (
                   <div
-                    key={member.id}
+                    key={member}
                     className="bg-gray-800 rounded-lg py-1 px-2 border border-gray-700"
                   >
-                    <p className="text-white font-medium">{member.name}</p>
+                    <p className="text-white font-medium">{member}</p>
                   </div>
                 ))}
               </div>

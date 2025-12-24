@@ -1,6 +1,13 @@
-import { ClassIcon, PlayIcon } from "../assets/Icons";
-import { TeamIcon } from "../assets/Icons";
+import { Cloudinary } from "@cloudinary/url-gen";
+
+import { ClassIcon, PlayIcon, TeamIcon } from "../assets/Icons";
 import { type Video } from "../types";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "drwdqe51v",
+  },
+});
 
 interface VideoCardProps {
   video: Video;
@@ -14,6 +21,8 @@ export const VideoCard = ({ video, onClick, onHeartClick }: VideoCardProps) => {
     onHeartClick();
   };
 
+  const thumbnail = cld.image(video.thumbnail).toURL();
+
   return (
     <div
       onClick={onClick}
@@ -22,7 +31,7 @@ export const VideoCard = ({ video, onClick, onHeartClick }: VideoCardProps) => {
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden bg-gray-900">
         <img
-          src={video.thumbnail}
+          src={thumbnail}
           alt={video.title}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
